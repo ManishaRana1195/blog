@@ -3,6 +3,7 @@
 <head>
   <title>Blog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Raleway' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -10,7 +11,7 @@
 	<div id = "sidebar">
 		<div id="logo"> 
 			<%= link_to root_path do%>
-			<%= image_tag "logo.svg"%>
+			<%= image_tag "mr_logo.svg"%>
 			<% end %>
 		</div>
 
@@ -22,9 +23,9 @@
 		<ul>
 			<li class="category"> Social</li>
 			<li><a href = "https://www.facebook.com"> Facebook</a></li>
-			<li><a href = "www.twitter.com"> Twitter</a></li>
-			<li><a href = "www.linkedIn.com"> LinkedIn</a></li>
-			<li><a href = "www.pinterest.com"> Pinterest</a></li>
+			<li><a href = "https://www.twitter.com"> Twitter</a></li>
+			<li><a href = "https://www.linkedIn.com"> LinkedIn</a></li>
+			<li><a href = "https://www.pinterest.com"> Pinterest</a></li>
 		</ul>
 
 		<p class="sign_in"> Admin Login</p>
@@ -33,17 +34,17 @@
 	<div id="main_content">
 		<div id="header">
 			<p>All Posts</p>
-			<div class="button">
-				<button class="button"><%= link_to "New Post", new_post_path%></button>
+			<div class="buttons">
+				<button class="button"><%= link_to "New Post", new_post_path %></button>
 				<button class="button">Logout</button>
 		    </div>
 		</div>
 
-	<% flash.each do |name, msg| %>
-		<%= content_tag(:div, msg, class: "alert-#{name}")%>
+		<% flash.each do |name, msg| %>
+			<%= content_tag(:div, msg, class: "alert alert-#{name}")%>
+		<%end%>
 		<%= yield %>
-	<%end%>
-</div>
+	</div>
 
 
 
