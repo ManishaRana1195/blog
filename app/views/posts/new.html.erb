@@ -1,5 +1,15 @@
 <div id="page_wrapper">
-	<%= form_for @post, url: posts_path do |f|%>
+	<h2>New Post</h2>
+	<%= form_for :post, url: posts_path do |f|%>
+		<% if @post.errors.any? %>
+		<div id="errors"> 
+			<h4><%= pluralize(@post.errors.count, "error")%> prevented this post from saving</h4>
+			<ul> <% @post.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+		<% end %>
 		<p> 
 			<%= f.label :title %> <br>
 			<%= f.text_field :title %>
